@@ -1,0 +1,69 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NodaTime" Version="2.4.0" />
+    <PackageReference Include="TimeZoneConverter" Version="2.4.1" />
+    <PackageReference Include="Xamarin.Forms" Version="3.1.0.697729" />  
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Citadel.IPC.Common\Citadel.IPC.Common.csproj" />
+    <ProjectReference Include="..\..\Filter.Platform.Common\Filter.Platform.Common.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="IPCHandlers\AuthenticationResultReceivedCallback.cs" />
+    <Compile Remove="IPCHandlers\DeactivationResultCallback.cs" />
+    <Compile Remove="IPCHandlers\RelaxedPolicyHandlers.cs" />
+    <Compile Remove="IPCHandlers\StateChangedCallback.cs" />
+    <Compile Remove="Platform\Common\IFilterStarter.cs" />
+    <Compile Remove="Platform\Common\IGuiServices.cs" />
+    <Compile Remove="IPCHandlers\AuthenticationResultReceivedCallback.cs" />
+    <Compile Remove="ViewModels\ItemsViewModel.cs" />
+    <Compile Remove="ViewModels\LoginViewModel.cs" />
+    <Compile Remove="Views\AboutPage.xaml.cs" />
+    <Compile Remove="Views\AdvancedPage.xaml.cs" />
+    <Compile Remove="Views\BlockedPagesPage.xaml.cs" />
+    <Compile Remove="Views\DiagnosticsPage.xaml.cs" />
+    <Compile Remove="Views\LoginPage.xaml.cs" />
+    <Compile Remove="Views\TimeRestrictionsPage.xaml.cs" />
+    <Compile Remove="Views\WaitingPage.xaml.cs" />
+    <Compile Remove="Views\MainPage.xaml.cs" />
+    <Compile Remove="ButtonEffect.cs" />
+    <Compile Remove="CustomFormElements\BlurredFrame.cs" />
+    <Compile Remove="Models\BlockedPageEntry.cs" />
+    <Compile Remove="Models\BlockedPagesModel.cs" />
+    <Compile Remove="Services\IDataStore.cs" />
+    <Compile Remove="Services\MockDataStore.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Remove="Views\AboutPage.xaml" />
+    <EmbeddedResource Remove="Views\BlockedPagesPage.xaml" />
+    <EmbeddedResource Remove="Views\DiagnosticsPage.xaml" />
+    <EmbeddedResource Remove="Views\LoginPage.xaml" />
+    <EmbeddedResource Remove="Views\TimeRestrictionsPage.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Views\SupportPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+</Project>
